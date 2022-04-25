@@ -1,0 +1,2 @@
+- name: Draw.io Export Action
+  uses: rlespinasse/drawio-export-action@2.1.0
