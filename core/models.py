@@ -24,8 +24,8 @@ class Cources(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=20)
-    fees_pending = models.IntegerField()
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
+    fees_pending = models.IntegerField(default=0)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     is_authenticated = models.BooleanField(default=False)
@@ -36,6 +36,8 @@ class Student(models.Model):
     class Meta:
         ordering = ['user__first_name', 'user__last_name']
     
+    def username(self):
+        return self.user.username
     
 class EnrolledCources(models.Model):
     student = models.ForeignKey(to="Student", on_delete=models.CASCADE)

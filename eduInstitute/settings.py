@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'siteInfo',
+    'manager',
 ]
 
 MIDDLEWARE = [

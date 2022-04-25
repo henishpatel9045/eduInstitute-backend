@@ -11,7 +11,7 @@ class CourceInline(admin.TabularInline):
 
 @admin.register(models.Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ['full_name']
+    list_display = ['full_name', 'username']
     list_per_page = 20
     search_fields = ['user__first_name', 'user__last_name']
     inlines = [CourceInline] 
