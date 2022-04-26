@@ -11,5 +11,5 @@ class CourceSerializer(serializers.ModelSerializer):
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Student
-        fields = "__all__"
+        fields = '__all__'
     
