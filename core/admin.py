@@ -3,18 +3,18 @@ from django.contrib import admin
 from . import models
 
 
-class CourceInline(admin.TabularInline):
-    model = models.EnrolledCources
-    fields = ['student', 'cource']
-    min_num = 1
-    extra = 0
+# class CourceInline(admin.TabularInline):
+#     model = models.EnrolledCources
+#     fields = ['student', 'cource']
+#     min_num = 1
+#     extra = 0
 
 @admin.register(models.Student)
 class StudentAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'username']
     list_per_page = 20
     search_fields = ['user__first_name', 'user__last_name']
-    inlines = [CourceInline] 
+    # inlines = [CourceInline] 
     autocomplete_fields = ["user"]
     
     def full_name(self, student):
@@ -25,4 +25,5 @@ class StudentAdmin(admin.ModelAdmin):
 class CourceAdmin(admin.ModelAdmin):
     list_display = ['title', 'capacity', 'price', 'is_listed']
     search_fields = ['title']
+
     

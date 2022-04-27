@@ -30,20 +30,12 @@ class Student(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
     is_authenticated = models.BooleanField(default=False)
     
+    def username(self):
+        return self.user.username
+   
     def __str__(self):
-        return self.user.first_name + " " + self.user.last_name
+        return self.username()
 
     class Meta:
         ordering = ['user__first_name', 'user__last_name']
-    
-    def username(self):
-        return self.user.username
-    
-class EnrolledCources(models.Model):
-    student = models.ForeignKey(to="Student", on_delete=models.CASCADE)
-    cource = models.ForeignKey(to="Cources", on_delete=models.CASCADE)
-    date_created = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return self.student.user.first_name + " - " + self.cource.title
     
